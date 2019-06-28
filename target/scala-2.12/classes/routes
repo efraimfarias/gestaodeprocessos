@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+
+# ############################################################################################ #
+# -------------------------------------------------------------------------------------------- #
+#                                 RESPONSAVEL                                                  #
+# -------------------------------------------------------------------------------------------- #
+# ############################################################################################ #
+
+POST    /responsaveis/              controllers.ResponsavelController.addResponsavel
+POST    /responsaveis/find-all      controllers.ResponsavelController.responsaveis(page: Long ?= 0, size : Long ?= 10)
+GET     /responsaveis/:id           controllers.ResponsavelController.responsavel(id:Long)
+PUT     /responsaveis/:id           controllers.ResponsavelController.updateResponsavel(id:Long)
+DELETE  /responsaveis/:id           controllers.ResponsavelController.deleteResponsavel(id:Long)
+
+################################################################################################
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

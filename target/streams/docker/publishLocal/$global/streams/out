@@ -1,0 +1,50 @@
+[0m[[0m[0mdebug[0m] [0m[0mExecuting Native docker build --force-rm -t gestaodeprocessos:1.0-SNAPSHOT .[0m
+[0m[[0m[0mdebug[0m] [0m[0mWorking directory /home/efraimfarias/gestaodeprocessos/target/docker/stage[0m
+[0m[[0m[0minfo[0m] [0m[0mSending build context to Docker daemon  50.08MB[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 1/14 : FROM openjdk:8 as stage0[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> b84359d0cbce[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 2/14 : WORKDIR /opt/docker[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 5013999413b2[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 3/14 : COPY opt /opt[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 69bc9ed42fb5[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 4/14 : USER root[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Running in 8b8c0f6d82b8[0m
+[0m[[0m[0minfo[0m] [0m[0mRemoving intermediate container 8b8c0f6d82b8[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 311761e1a549[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 5/14 : RUN ["chmod", "-R", "u=rX,g=rX", "/opt/docker"][0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Running in df2a01d9921e[0m
+[0m[[0m[0minfo[0m] [0m[0mRemoving intermediate container df2a01d9921e[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 4d363f3c1402[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 6/14 : RUN ["chmod", "u+x,g+x", "/opt/docker/bin/gestaodeprocessos"][0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Running in 7c6c86976c89[0m
+[0m[[0m[0minfo[0m] [0m[0mRemoving intermediate container 7c6c86976c89[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 8ad983549aec[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 7/14 : FROM openjdk:8[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> b84359d0cbce[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 8/14 : USER root[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> b433151be19b[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 9/14 : RUN id -u demiourgos728 2> /dev/null || useradd --system --create-home --uid 1001 --gid 0 demiourgos728[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 52e80aa8b83e[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 10/14 : WORKDIR /opt/docker[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 4c536bfb94c2[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 11/14 : COPY --from=stage0 --chown=demiourgos728:root /opt/docker /opt/docker[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 9276d357f7be[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 12/14 : USER 1001[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Running in a7670fa475ec[0m
+[0m[[0m[0minfo[0m] [0m[0mRemoving intermediate container a7670fa475ec[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> d242129e3ce5[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 13/14 : ENTRYPOINT ["/opt/docker/bin/gestaodeprocessos"][0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Running in cfc1fdac92d4[0m
+[0m[[0m[0minfo[0m] [0m[0mRemoving intermediate container cfc1fdac92d4[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 6eca34769ed1[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 14/14 : CMD [][0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Running in b6b2ee53d0ed[0m
+[0m[[0m[0minfo[0m] [0m[0mRemoving intermediate container b6b2ee53d0ed[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 28d64a1c25a2[0m
+[0m[[0m[0minfo[0m] [0m[0mSuccessfully built 28d64a1c25a2[0m
+[0m[[0m[0minfo[0m] [0m[0mSuccessfully tagged gestaodeprocessos:1.0-SNAPSHOT[0m
+[0m[[0m[0minfo[0m] [0m[0mBuilt image gestaodeprocessos with tags [1.0-SNAPSHOT][0m

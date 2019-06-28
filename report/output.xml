@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.3rc1 (Python 3.6.8 on linux)" generated="20190627 04:35:11.812">
+<suite id="s1" name="Tests" source="/data/tests">
+<suite id="s1-s1" name="TestCasesAPIResponsavel" source="/data/tests/TestCasesAPIResponsavel.robot">
+<test id="s1-s1-t1" name="Cenário: Obter responsáveis sem esperar resultado">
+<kw name="Dado que o cliente acessa a api de responsáveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="Que o cliente acessa a api de responsáveis" library="ResourceResponsavel">
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Acessando API de responsáveis"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:11.966" endtime="20190627 04:35:11.966"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:11.967" level="INFO">"Acessando API de responsáveis"</msg>
+<status status="PASS" starttime="20190627 04:35:11.967" endtime="20190627 04:35:11.967"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:11.966" endtime="20190627 04:35:11.967"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${HOST_API}/responsaveis</arg>
+</arguments>
+<msg timestamp="20190627 04:35:11.967" level="INFO">Creating Session using : alias=api, url=http://127.0.0.1:9000/responsaveis, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20190627 04:35:11.967" endtime="20190627 04:35:11.968"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:11.965" endtime="20190627 04:35:11.968"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:11.965" endtime="20190627 04:35:11.968"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:11.965" endtime="20190627 04:35:11.968"></status>
+</kw>
+<kw name="Quando o cliente solicita o conjunto de responsáveis possiveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="O cliente solicita o conjunto de responsáveis possiveis" library="ResourceResponsavel">
+<kw name="Consultar todos responsaveis" library="ResourceResponsavel">
+<arguments>
+<arg>{}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${responsavel_query})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_request}</var>
+</assign>
+<msg timestamp="20190627 04:35:11.970" level="INFO">${json_request} = {}</msg>
+<status status="PASS" starttime="20190627 04:35:11.970" endtime="20190627 04:35:11.970"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20190627 04:35:11.971" level="INFO">${headers} = {'Content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20190627 04:35:11.970" endtime="20190627 04:35:11.971"></status>
+</kw>
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Request consulta obter responsáveis: ${json_request}"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:11.972" endtime="20190627 04:35:11.972"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:11.972" level="INFO">"Request consulta obter responsáveis: {}"</msg>
+<status status="PASS" starttime="20190627 04:35:11.972" endtime="20190627 04:35:11.972"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:11.971" endtime="20190627 04:35:11.972"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/find-all</arg>
+<arg>data=${json_request}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${http_response_find_all}</var>
+</assign>
+<msg timestamp="20190627 04:35:11.976" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461ba2748&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.178" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461679240&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.582" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616e2f98&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.587" level="FAIL">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /responsaveis/find-all (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616e23c8&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" starttime="20190627 04:35:11.973" endtime="20190627 04:35:12.588"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:11.969" endtime="20190627 04:35:12.588"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:11.969" endtime="20190627 04:35:12.589"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:11.969" endtime="20190627 04:35:12.589"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:11.968" endtime="20190627 04:35:12.590"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:11.964" endtime="20190627 04:35:12.590" critical="yes">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /responsaveis/find-all (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616e23c8&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-s1-t2" name="Cenário: Obter responsáveis verificando resultado">
+<kw name="Dado que o cliente acessa a api de responsáveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="Que o cliente acessa a api de responsáveis" library="ResourceResponsavel">
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Acessando API de responsáveis"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:12.597" endtime="20190627 04:35:12.598"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:12.599" level="INFO">"Acessando API de responsáveis"</msg>
+<status status="PASS" starttime="20190627 04:35:12.598" endtime="20190627 04:35:12.599"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:12.596" endtime="20190627 04:35:12.599"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${HOST_API}/responsaveis</arg>
+</arguments>
+<msg timestamp="20190627 04:35:12.600" level="INFO">Creating Session using : alias=api, url=http://127.0.0.1:9000/responsaveis, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20190627 04:35:12.600" endtime="20190627 04:35:12.601"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:12.596" endtime="20190627 04:35:12.602"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:12.595" endtime="20190627 04:35:12.602"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:12.594" endtime="20190627 04:35:12.602"></status>
+</kw>
+<kw name="Quando o cliente solicita o conjunto de responsáveis possiveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="O cliente solicita o conjunto de responsáveis possiveis" library="ResourceResponsavel">
+<kw name="Consultar todos responsaveis" library="ResourceResponsavel">
+<arguments>
+<arg>{}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${responsavel_query})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_request}</var>
+</assign>
+<msg timestamp="20190627 04:35:12.605" level="INFO">${json_request} = {}</msg>
+<status status="PASS" starttime="20190627 04:35:12.605" endtime="20190627 04:35:12.605"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20190627 04:35:12.606" level="INFO">${headers} = {'Content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20190627 04:35:12.606" endtime="20190627 04:35:12.606"></status>
+</kw>
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Request consulta obter responsáveis: ${json_request}"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:12.606" endtime="20190627 04:35:12.607"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:12.607" level="INFO">"Request consulta obter responsáveis: {}"</msg>
+<status status="PASS" starttime="20190627 04:35:12.607" endtime="20190627 04:35:12.607"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:12.606" endtime="20190627 04:35:12.607"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/find-all</arg>
+<arg>data=${json_request}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${http_response_find_all}</var>
+</assign>
+<msg timestamp="20190627 04:35:12.609" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461656dd8&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.811" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616630f0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.213" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616632b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.216" level="FAIL">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /responsaveis/find-all (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616634e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" starttime="20190627 04:35:12.608" endtime="20190627 04:35:13.217"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:12.604" endtime="20190627 04:35:13.217"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:12.604" endtime="20190627 04:35:13.218"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:12.603" endtime="20190627 04:35:13.218"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:12.603" endtime="20190627 04:35:13.218"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:12.592" endtime="20190627 04:35:13.219" critical="yes">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /responsaveis/find-all (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616634e0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-s1-t3" name="Cenário: Obter responsáveis verificando resultado com filtro pelo nome">
+<kw name="Dado que o cliente acessa a api de responsáveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="Que o cliente acessa a api de responsáveis" library="ResourceResponsavel">
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Acessando API de responsáveis"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:13.224" endtime="20190627 04:35:13.225"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:13.225" level="INFO">"Acessando API de responsáveis"</msg>
+<status status="PASS" starttime="20190627 04:35:13.225" endtime="20190627 04:35:13.226"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.224" endtime="20190627 04:35:13.226"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${HOST_API}/responsaveis</arg>
+</arguments>
+<msg timestamp="20190627 04:35:13.226" level="INFO">Creating Session using : alias=api, url=http://127.0.0.1:9000/responsaveis, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20190627 04:35:13.226" endtime="20190627 04:35:13.227"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.223" endtime="20190627 04:35:13.227"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.223" endtime="20190627 04:35:13.227"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.222" endtime="20190627 04:35:13.227"></status>
+</kw>
+<kw name="Quando o cliente solicita o conjunto de responsáveis possiveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="O cliente solicita o conjunto de responsáveis possiveis" library="ResourceResponsavel">
+<kw name="Consultar todos responsaveis" library="ResourceResponsavel">
+<arguments>
+<arg>{}</arg>
+</arguments>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${responsavel_query})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_request}</var>
+</assign>
+<msg timestamp="20190627 04:35:13.232" level="INFO">${json_request} = {}</msg>
+<status status="PASS" starttime="20190627 04:35:13.230" endtime="20190627 04:35:13.233"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-type=application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20190627 04:35:13.235" level="INFO">${headers} = {'Content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20190627 04:35:13.233" endtime="20190627 04:35:13.235"></status>
+</kw>
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Request consulta obter responsáveis: ${json_request}"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:13.235" endtime="20190627 04:35:13.236"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:13.236" level="INFO">"Request consulta obter responsáveis: {}"</msg>
+<status status="PASS" starttime="20190627 04:35:13.236" endtime="20190627 04:35:13.236"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.235" endtime="20190627 04:35:13.236"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/find-all</arg>
+<arg>data=${json_request}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${http_response_find_all}</var>
+</assign>
+<msg timestamp="20190627 04:35:13.238" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14615faa90&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.439" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14615fad68&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.842" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14615faf28&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.845" level="FAIL">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /responsaveis/find-all (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461603160&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" starttime="20190627 04:35:13.236" endtime="20190627 04:35:13.845"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.229" endtime="20190627 04:35:13.846"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.229" endtime="20190627 04:35:13.846"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.228" endtime="20190627 04:35:13.847"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.228" endtime="20190627 04:35:13.847"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.220" endtime="20190627 04:35:13.848" critical="yes">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /responsaveis/find-all (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461603160&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<doc>Suíte de testes da api de Responsável</doc>
+<status status="FAIL" starttime="20190627 04:35:11.847" endtime="20190627 04:35:13.851"></status>
+</suite>
+<suite id="s1-s2" name="TestCasesAPISituacao" source="/data/tests/TestCasesAPISituacao.robot">
+<test id="s1-s2-t1" name="Cenário: Obter toda situações esperando resultado">
+<kw name="Dado que o cliente acessa a api de situação" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="Que o cliente acessa a api de situação" library="ResourceSituacao">
+<kw name="Logar" library="Resource">
+<arguments>
+<arg>"Acessando API de situação"</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<status status="PASS" starttime="20190627 04:35:13.875" endtime="20190627 04:35:13.875"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${mensagem}</arg>
+</arguments>
+<msg timestamp="20190627 04:35:13.875" level="INFO">"Acessando API de situação"</msg>
+<status status="PASS" starttime="20190627 04:35:13.875" endtime="20190627 04:35:13.876"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.874" endtime="20190627 04:35:13.876"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>api</arg>
+<arg>${HOST_API}/situacoes</arg>
+</arguments>
+<msg timestamp="20190627 04:35:13.876" level="INFO">Creating Session using : alias=api, url=http://127.0.0.1:9000/situacoes, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20190627 04:35:13.876" endtime="20190627 04:35:13.876"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.874" endtime="20190627 04:35:13.876"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.874" endtime="20190627 04:35:13.877"></status>
+</kw>
+<status status="PASS" starttime="20190627 04:35:13.873" endtime="20190627 04:35:13.877"></status>
+</kw>
+<kw name="Quando o cliente solicita o conjunto de situações possiveis" library="Resource">
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>${keyword}</arg>
+</arguments>
+<kw name="O cliente solicita o conjunto de situações possiveis" library="ResourceSituacao">
+<kw name="Consultar todas situações" library="ResourceSituacao">
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>api</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>${http_response}</var>
+</assign>
+<msg timestamp="20190627 04:35:13.881" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14617339b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /situacoes/</msg>
+<msg timestamp="20190627 04:35:14.083" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461733be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /situacoes/</msg>
+<msg timestamp="20190627 04:35:14.486" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616b8208&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /situacoes/</msg>
+<msg timestamp="20190627 04:35:14.489" level="FAIL">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /situacoes/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616b85c0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" starttime="20190627 04:35:13.878" endtime="20190627 04:35:14.490"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.878" endtime="20190627 04:35:14.490"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.877" endtime="20190627 04:35:14.491"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.877" endtime="20190627 04:35:14.491"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.877" endtime="20190627 04:35:14.492"></status>
+</kw>
+<status status="FAIL" starttime="20190627 04:35:13.873" endtime="20190627 04:35:14.492" critical="yes">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=9000): Max retries exceeded with url: /situacoes/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616b85c0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<doc>Suíte de testes da api de Situação</doc>
+<status status="FAIL" starttime="20190627 04:35:13.857" endtime="20190627 04:35:14.494"></status>
+</suite>
+<status status="FAIL" starttime="20190627 04:35:11.814" endtime="20190627 04:35:14.499"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4">Critical Tests</stat>
+<stat pass="0" fail="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="4" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="3" id="s1-s1" name="TestCasesAPIResponsavel">Tests.TestCasesAPIResponsavel</stat>
+<stat pass="0" fail="1" id="s1-s2" name="TestCasesAPISituacao">Tests.TestCasesAPISituacao</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20190627 04:35:11.976" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461ba2748&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.178" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461679240&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.582" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616e2f98&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.609" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461656dd8&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:12.811" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616630f0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.213" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616632b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.238" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14615faa90&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.439" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14615fad68&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.842" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14615faf28&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /responsaveis/find-all</msg>
+<msg timestamp="20190627 04:35:13.881" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14617339b0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /situacoes/</msg>
+<msg timestamp="20190627 04:35:14.083" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f1461733be0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /situacoes/</msg>
+<msg timestamp="20190627 04:35:14.486" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f14616b8208&gt;: Failed to establish a new connection: [Errno 111] Connection refused',)': /situacoes/</msg>
+</errors>
+</robot>

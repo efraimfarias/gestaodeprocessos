@@ -1,0 +1,6 @@
+docker:publishLocal
+sudo docker:publishLocal
+exit
+playGenerateSecret
+playUpdateSecret
+exit

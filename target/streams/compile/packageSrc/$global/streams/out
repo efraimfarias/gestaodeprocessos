@@ -1,0 +1,21 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/efraimfarias/gestaodeprocessos/target/scala-2.12/gestaodeprocessos_2.12-1.0-SNAPSHOT-sources.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	evolutions/default[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/conf/evolutions/default[0m
+[0m[[0m[0mdebug[0m] [0m[0m	controllers/HomeController.java[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/app/controllers/HomeController.java[0m
+[0m[[0m[0mdebug[0m] [0m[0m	evolutions/default/1.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/conf/evolutions/default/1.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models/Responsavel.java[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/app/models/Responsavel.java[0m
+[0m[[0m[0mdebug[0m] [0m[0m	routes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/conf/routes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	evolutions[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/conf/evolutions[0m
+[0m[[0m[0mdebug[0m] [0m[0m	logback.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/conf/logback.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/conf/application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	controllers/ResponsavelController.java[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/efraimfarias/gestaodeprocessos/app/controllers/ResponsavelController.java[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
